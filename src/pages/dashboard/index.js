@@ -39,7 +39,7 @@ const Dashboard = (props) => {
   useEffect(() => {
     if (props.edit_workflow_status === status.SUCCESS) {
       if (props.edit_workflow_data) {
-        navigate(`/dashboard/${props.edit_workflow_data.id}`, { replace: true })
+        navigate(`/workflow/${props.edit_workflow_data.id}`, { replace: true })
       }
     }
   }, [props.edit_workflow_status])

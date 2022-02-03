@@ -52,7 +52,7 @@ const Sidebar = (props) => {
 
     const setCurrentPage = (page, id) => {
         setActiveMenu(page);
-        navigate(`/dashboard/${id}`);
+        navigate(`/workflow/${id}`);
     }
 
     return (

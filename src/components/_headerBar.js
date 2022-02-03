@@ -13,12 +13,12 @@ const Header = (props) => {
         if (location.pathname && location.pathname !== '' && location.pathname !== '/') {
             let url = location.pathname;
             url = url.split('/');
-            if (url[1] == 'dashboard' || url[1] == 'kanban') {
+            if (url[1] == 'workflow' || url[1] == 'matrix-view') {
                 setId(url[2])
-                if (url[1] == 'dashboard') {
-                    setCurrentPageUrl('kanban');
-                } else if (url[1] == 'kanban') {
-                    setCurrentPageUrl('dashboard');
+                if (url[1] == 'workflow') {
+                    setCurrentPageUrl('matrix-view');
+                } else if (url[1] == 'matrix-view') {
+                    setCurrentPageUrl('workflow');
                 }
             }
         }
@@ -35,7 +35,7 @@ const Header = (props) => {
                 <div className="col-md-6">
                     <div className="d-flex justify-content-end align-items-center w-100 head-right">
                         <div className="filter-icon">
-                            {(Id && currentpage !== '' && currentpage !== '/') && (currentpage == 'kanban' || currentpage == 'dashboard') ?
+                            {(Id && currentpage !== '' && currentpage !== '/') && (currentpage == 'matrix-view' || currentpage == 'workflow') ?
                                 <Link to={`/${currentpage}/${Id}`}>
                                     <img src={FilterIcon} alt="" />
                                 </Link>

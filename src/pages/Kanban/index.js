@@ -45,9 +45,9 @@ const Kanban = (props) => {
         if (step && step.length > 0) {
             for (let i = 0; i < step.length; i++) {
                 retStepData.push(
-                    <Link to="/matrix-view">
+                    <Link to="/devlopment">
                         <li className={step[i].link !== '' ? 'active' : ''}>
-                            {step[i].link}
+                            {step[i].label}
                         </li>
                     </Link>
                 )

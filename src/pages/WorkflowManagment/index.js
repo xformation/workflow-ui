@@ -3,6 +3,7 @@ import { WorkflowAction } from './../../_action';
 import { connect } from 'react-redux';
 import { status } from '../../_constants';
 import { Link, useParams } from 'react-router-dom';
+import editIcon from '../../assets/images/edit-icon.png';
 
 const WorkflowManagment = (props) => {
     const { id } = useParams();
@@ -66,7 +67,7 @@ const WorkflowManagment = (props) => {
                 for (let i = 0; i < workflowDetail.checkList.length; i++) {
                     let row = workflowDetail.checkList[i];
                     retData.push(
-                        <div key={i+'checkbox'} className="requirement-data">
+                        <div key={i + 'checkbox'} className="requirement-data">
                             <input type="checkbox" checked={row.isChecked} onChange={(e) => handleStateChangeCheckList(e, i)} />
                             <span>{row.label}</span>
                         </div>
@@ -176,8 +177,8 @@ const WorkflowManagment = (props) => {
                 <ul>
                     {displayWorkflowStage()}
                 </ul>
-                <Link to={`/editworkflow/${Id}`}>
-                    <i className="far fa-edit"></i> Edit
+                <Link to={`/editworkflow/${Id}`} className="btn btn-primary btn-edit">
+                    <img src={editIcon} alt='' />&nbsp; Edit
                 </Link>
             </div>
             <div className="workflow-data">
@@ -191,7 +192,7 @@ const WorkflowManagment = (props) => {
             </div>
             <div className="d-flex justify-content-end workflow-buttons">
                 <button type="button" disabled={activeStage == 0} class="btn btn-primary" onClick={() => moveToNextPage('previous')}>Previous</button>
-                {usecaseData && usecaseData.stages && <button type="button" disabled={activeStage == usecaseData.stages.length -1} class="btn btn-primary" onClick={() => moveToNextPage('next')}>Next</button>}
+                {usecaseData && usecaseData.stages && <button type="button" disabled={activeStage == usecaseData.stages.length - 1} class="btn btn-primary" onClick={() => moveToNextPage('next')}>Next</button>}
             </div>
         </div>
     );
